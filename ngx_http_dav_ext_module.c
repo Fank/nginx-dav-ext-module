@@ -299,7 +299,7 @@ ngx_http_dav_ext_send_propfind_atts(ngx_http_request_t *r,
 	u_char        buf[256];
 	ngx_str_t     name;
 
-	if (stat(path, &st)) {
+	if (stat(path, &st) == -1) {
 
 		ngx_log_error(NGX_LOG_ALERT, r->connection->log, ngx_errno,
 				"dav_ext stat failed on '%s'", path);
